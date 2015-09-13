@@ -96,8 +96,14 @@ atom-text-editor .search-results .marker.current-result .region,
 .storage {
   color: @yellow;
 
+  // Actual storage modifiers, e.g. "final"
   &.modifier {
     color: @dark-green;
+
+    // For `var` declarations
+    &.js {
+      color: @yellow;
+    }
   }
 }
 
