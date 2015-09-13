@@ -223,8 +223,14 @@ atom-text-editor .search-results .marker.current-result .region,
     }
   }
 
-  &.name.class, &.name.type.class {
+  &.name.class,
+  &.name.type.class {
     color: @light-green;
+
+    // Java class declaration, class's name
+    &.java {
+      color: @yellow;
+    }
   }
 
   &.name.section {
@@ -244,8 +250,7 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.other.inherited-class {
-    color: @dark-green;
-    text-decoration: underline;
+    color: @yellow;
   }
 }
 
