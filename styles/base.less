@@ -196,14 +196,21 @@ atom-text-editor .search-results .marker.current-result .region,
     }
 
     &.tag {
-      color: @light-green;
+      color: @syntax-text-color;
+
+      &.begin.jsp, &.end.jsp {
+        color: @yellow;
+      }
     }
   }
 
   &.section {
     color: @syntax-text-color;
-  }
 
+    &.embedded.jsp {
+      color: @yellow;
+    }
+  }
 }
 
 .support {
