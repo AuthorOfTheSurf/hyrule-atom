@@ -344,3 +344,26 @@ atom-text-editor[mini] .scroll-view,
 :host([mini]) .scroll-view {
   padding-left: 1px;
 }
+
+.git-config {
+  &.value-pair.section-item {
+    .support.constant {
+      color: @syntax-text-color;
+    }
+    .punctuation.separator.key-value {
+      color: @light-green;
+    }
+  }
+
+  &.entity.name.section.section.git-config {
+    color: @light-green;
+  }
+
+  &.entity.name.section.subsection.git-config {
+    color: @orange;
+  }
+
+  &.punctuation.section.git-config {
+    color: @orange;
+  }
+}
