@@ -206,7 +206,7 @@ atom-text-editor .search-results .marker.current-result .region,
     }
 
     &.tag {
-      color: @syntax-text-color;
+      color: @dark-green;
 
       &.begin.jsp, &.end.jsp {
         color: @yellow;
@@ -265,7 +265,11 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.other.attribute-name {
-    color: @dark-green;
+    color: @light-green;
+
+    &.html{
+      color: @yellow;
+    }
   }
 
   &.name.type {
