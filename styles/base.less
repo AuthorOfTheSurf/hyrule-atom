@@ -111,6 +111,12 @@ atom-text-editor .search-results .marker.current-result .region,
       color: @light-green;
     }
   }
+
+  // *, and & before function parameters in Ruby
+  // def self.start(*args, &block)
+  &.type {
+      color: @light-green;
+  }
 }
 
 .todo {
@@ -119,6 +125,18 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .fixme {
   .todo;
+}
+
+.variable {
+  color: @syntax-text-color;
+
+  &.interpolation {
+    color: @orange;
+  }
+
+  &.parameter.function {
+    color: @orange;
+  }
 }
 
 .constant {
@@ -138,18 +156,6 @@ atom-text-editor .search-results .marker.current-result .region,
 
   &.other.symbol {
     color: @blue;
-  }
-}
-
-.variable {
-  color: @syntax-text-color;
-
-  &.interpolation {
-    color: @orange;
-  }
-
-  &.parameter.function {
-    color: @orange;
   }
 }
 
@@ -175,6 +181,8 @@ atom-text-editor .search-results .marker.current-result .region,
 }
 
 .punctuation {
+  color: @light-green;
+
   &.definition {
     &.comment {
       color: @light-gray;
@@ -220,6 +228,11 @@ atom-text-editor .search-results .marker.current-result .region,
     &.embedded.jsp {
       color: @orange;
     }
+
+    // Ruby interpolation
+    &.embedded {
+      color: @light-green;
+    }
   }
 }
 
@@ -251,7 +264,9 @@ atom-text-editor .search-results .marker.current-result .region,
     color: @light-green;
 
     // Java class declaration, class's name
-    &.java {
+    // Ruby classes
+    &.java,
+    &.ruby {
       color: @yellow;
     }
   }
