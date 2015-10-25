@@ -107,9 +107,23 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.function {
-    &.js {
+    // `function`
+    &.js,
+    // `def`
+    &.python {
       color: @light-green;
     }
+  }
+
+  // *, and & before function parameters in Ruby
+  // def self.start(*args, &block)
+  &.type.variable.ruby {
+      color: @light-green;
+  }
+
+  // `class` keyword, PHP, Python
+  &.type.class {
+      color: @light-green;
   }
 }
 
@@ -119,6 +133,18 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .fixme {
   .todo;
+}
+
+.variable {
+  color: @syntax-text-color;
+
+  &.interpolation {
+    color: @orange;
+  }
+
+  &.parameter.function {
+    color: @orange;
+  }
 }
 
 .constant {
@@ -139,17 +165,10 @@ atom-text-editor .search-results .marker.current-result .region,
   &.other.symbol {
     color: @blue;
   }
-}
 
-.variable {
-  color: @syntax-text-color;
-
-  &.interpolation {
-    color: @orange;
-  }
-
-  &.parameter.function {
-    color: @orange;
+  // python interpolation
+  &.other.placeholder {
+    color: @light-green;
   }
 }
 
@@ -175,6 +194,7 @@ atom-text-editor .search-results .marker.current-result .region,
 }
 
 .punctuation {
+
   &.definition {
     &.comment {
       color: @light-gray;
@@ -220,6 +240,16 @@ atom-text-editor .search-results .marker.current-result .region,
     &.embedded.jsp {
       color: @orange;
     }
+
+    // Ruby interpolation
+    &.embedded {
+      color: @light-green;
+    }
+  }
+
+  // Ruby's inheritance operator `<`
+  &.separator {
+    color: @light-green;
   }
 }
 
@@ -244,16 +274,17 @@ atom-text-editor .search-results .marker.current-result .region,
     &.mustache {
       color: @syntax-text-color;
     }
+
+    // Python, `@property`
+    &.decorator {
+      color: @yellow;
+    }
   }
 
   &.name.class,
+  // class declarations, Java, Ruby, PHP, Python
   &.name.type.class {
-    color: @light-green;
-
-    // Java class declaration, class's name
-    &.java {
-      color: @yellow;
-    }
+    color: @yellow;
   }
 
   &.name.section {
