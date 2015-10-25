@@ -6,11 +6,10 @@
   "keywords": [
     "syntax",
     "theme",
-    "atom",
-    "hyrule",
-    "java",
-    "html",
     "go",
+    "java",
+    "atom",
+    "html",
     "javascript"
   ],
   "repository": "https://github.com/AuthorOfTheSurf/hyrule-atom",
