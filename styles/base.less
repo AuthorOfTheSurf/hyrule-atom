@@ -107,7 +107,10 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.function {
-    &.js {
+    // `function`
+    &.js,
+    // `def`
+    &.python {
       color: @light-green;
     }
   }
@@ -118,8 +121,8 @@ atom-text-editor .search-results .marker.current-result .region,
       color: @light-green;
   }
 
-  // php's `class` declaration keyword
-  &.type.class.php {
+  // `class` keyword, PHP, Python
+  &.type.class {
       color: @light-green;
   }
 }
@@ -161,6 +164,11 @@ atom-text-editor .search-results .marker.current-result .region,
 
   &.other.symbol {
     color: @blue;
+  }
+
+  // python interpolation
+  &.other.placeholder {
+    color: @light-green;
   }
 }
 
@@ -266,19 +274,17 @@ atom-text-editor .search-results .marker.current-result .region,
     &.mustache {
       color: @syntax-text-color;
     }
+
+    // Python, `@property`
+    &.decorator {
+      color: @yellow;
+    }
   }
 
   &.name.class,
+  // class declarations, Java, Ruby, PHP, Python
   &.name.type.class {
-    color: @light-green;
-
-    // Java class declaration, class's name
-    // Ruby classes
-    &.java,
-    &.ruby,
-    &.php {
-      color: @yellow;
-    }
+    color: @yellow;
   }
 
   &.name.section {
