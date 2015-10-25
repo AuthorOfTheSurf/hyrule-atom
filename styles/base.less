@@ -114,7 +114,12 @@ atom-text-editor .search-results .marker.current-result .region,
 
   // *, and & before function parameters in Ruby
   // def self.start(*args, &block)
-  &.type {
+  &.type.variable.ruby {
+      color: @light-green;
+  }
+
+  // php's `class` declaration keyword
+  &.type.class.php {
       color: @light-green;
   }
 }
@@ -181,7 +186,6 @@ atom-text-editor .search-results .marker.current-result .region,
 }
 
 .punctuation {
-  color: @light-green;
 
   &.definition {
     &.comment {
@@ -234,6 +238,11 @@ atom-text-editor .search-results .marker.current-result .region,
       color: @light-green;
     }
   }
+
+  // Ruby's inheritance operator `<`
+  &.separator {
+    color: @light-green;
+  }
 }
 
 .support {
@@ -266,7 +275,8 @@ atom-text-editor .search-results .marker.current-result .region,
     // Java class declaration, class's name
     // Ruby classes
     &.java,
-    &.ruby {
+    &.ruby,
+    &.php {
       color: @yellow;
     }
   }
