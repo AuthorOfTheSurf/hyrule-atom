@@ -8,7 +8,7 @@ Some colors have been remaped to be more similar to the 2014 version of Hyrule a
 
 ### Installing from Github
 
-This theme has yet to be published officially as it still needs work on some popular languages. In the meantime, you can install Hyrule from Github easily for development use.
+You can install Hyrule from Github easily for development use!
 
 1. Clone this repo:
 
