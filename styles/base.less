@@ -1,6 +1,6 @@
 @import "syntax-variables";
 
-atom-text-editor, :host {
+atom-text-editor {
   background-color: @bg-color;
   color: @syntax-text-color;
 
@@ -58,364 +58,361 @@ atom-text-editor, :host {
   }
 }
 
-atom-text-editor .search-results .marker .region,
-:host .search-results .marker .region {
+atom-text-editor .search-results .syntax--marker .region {
   background-color: transparent;
   border: 1px solid @syntax-result-marker-color;
 }
 
-atom-text-editor .search-results .marker.current-result .region,
-:host .search-results .marker.current-result .region {
+atom-text-editor .search-results .syntax--marker.current-result .region {
   border: 1px solid @syntax-result-marker-color-selected;
 }
 
-.comment {
+.syntax--comment {
   color: @light-gray;
 }
 
-.keyword {
+.syntax--keyword {
   color: @light-green;
 
-  &.control {
+  &.syntax--control {
     color: @light-green;
   }
 
-  &.operator {
+  &.syntax--operator {
     color: @light-green;
   }
 
-  &.other.special-method {
+  &.syntax--other.syntax--special-method {
     color: @yellow;
   }
 
-  &.other.unit {
+  &.syntax--other.syntax--unit {
     color: @yellow;
   }
 }
 
-.storage {
+.syntax--storage {
   color: @yellow;
 
   // Actual storage modifiers, e.g. "final"
-  &.modifier {
+  &.syntax--modifier {
     color: @dark-green;
 
     // For `var` declarations
-    &.js {
+    &.syntax--js {
       color: @light-green;
     }
   }
 
-  &.function {
+  &.syntax--function {
     // `function`
-    &.js,
+    &.syntax--js,
     // `def`
-    &.python {
+    &.syntax--python {
       color: @light-green;
     }
   }
 
   // *, and & before function parameters in Ruby
   // def self.start(*args, &block)
-  &.type.variable.ruby {
+  &.syntax--type.syntax--variable.syntax--ruby {
       color: @light-green;
   }
 
   // `class` keyword, PHP, Python
-  &.type.class {
+  &.syntax--type.syntax--class {
       color: @light-green;
   }
 }
 
-.todo {
+.syntax--todo {
   color: @blue;
 }
 
-.fixme {
-  .todo;
+.syntax--fixme {
+  .syntax--todo;
 }
 
-.variable {
+.syntax--variable {
   color: @syntax-text-color;
 
-  &.interpolation {
+  &.syntax--interpolation {
     color: @orange;
   }
 
-  &.parameter.function {
+  &.syntax--parameter.syntax--function {
     color: @orange;
   }
 }
 
-.constant {
+.syntax--constant {
   color: @dark-green;
 
-  &.character.escape {
+  &.syntax--character.syntax--escape {
     color: @light-green;
   }
 
-  &.numeric {
+  &.syntax--numeric {
     color: @yellow;
   }
 
-  &.other.color {
+  &.syntax--other.syntax--color {
     color: @blue;
   }
 
-  &.other.symbol {
+  &.syntax--other.syntax--symbol {
     color: @blue;
   }
 
   // python interpolation
-  &.other.placeholder {
+  &.syntax--other.syntax--placeholder {
     color: @light-green;
   }
 }
 
-.invalid.illegal {
+.syntax--invalid.syntax--illegal {
   background-color: @blue;
   color: @syntax-text-color;
 }
 
-.string {
+.syntax--string {
   color: @orange;
 
-  &.regexp {
+  &.syntax--regexp {
     color: @orange;
 
-    .source.ruby.embedded {
+    .syntax--source.syntax--ruby.syntax--embedded {
       color: @orange;
     }
   }
 
-  &.other.link {
+  &.syntax--other.syntax--link {
     color: @blue;
   }
 }
 
-.punctuation {
+.syntax--punctuation {
 
-  &.definition {
-    &.comment {
+  &.syntax--definition {
+    &.syntax--comment {
       color: @light-gray;
     }
 
-    &.string{
+    &.syntax--string{
       color: @orange
     }
 
-    &.variable,
-    &.parameters,
-    &.array {
+    &.syntax--variable,
+    &.syntax--parameters,
+    &.syntax--array {
       color: @syntax-text-color;
     }
 
-    &.heading,
-    &.identity {
+    &.syntax--heading,
+    &.syntax--identity {
       color: @blue;
     }
 
-    &.bold {
+    &.syntax--bold {
       color: @syntax-text-color;
       font-weight: bold;
     }
 
-    &.italic {
+    &.syntax--italic {
       color: @syntax-text-color;
       font-style: italic;
     }
 
-    &.tag {
+    &.syntax--tag {
       color: @dark-green;
 
-      &.begin.jsp, &.end.jsp {
+      &.syntax--begin.syntax--jsp, &.syntax--end.syntax--jsp {
         color: @orange;
       }
     }
   }
 
-  &.section {
+  &.syntax--section {
     color: @syntax-text-color;
 
-    &.embedded.jsp {
+    &.syntax--embedded.syntax--jsp {
       color: @orange;
     }
 
     // Ruby interpolation
-    &.embedded {
+    &.syntax--embedded {
       color: @light-green;
     }
   }
 
   // Ruby's inheritance operator `<`
-  &.separator {
+  &.syntax--separator {
     color: @light-green;
   }
 }
 
-.support {
-  &.class {
+.syntax--support {
+  &.syntax--class {
     color: @dark-green;
   }
 
-  &.function  {
+  &.syntax--function  {
     color: @yellow;
 
-    &.any-method {
+    &.syntax--any-method {
       color: @light-green;
     }
   }
 }
 
-.entity {
-  &.name.function {
+.syntax--entity {
+  &.syntax--name.syntax--function {
     color: @light-green;
 
-    &.mustache {
+    &.syntax--mustache {
       color: @syntax-text-color;
     }
 
     // Python, `@property`
-    &.decorator {
+    &.syntax--decorator {
       color: @yellow;
     }
   }
 
-  &.name.class,
+  &.syntax--syntax--name.syntax--syntax--class,
   // class declarations, Java, Ruby, PHP, Python
-  &.name.type.class {
+  &.syntax--syntax--name.syntax--syntax--type.syntax--syntax--class {
     color: @yellow;
   }
 
-  &.name.section {
+  &.syntax--syntax--name.syntax--syntax--section {
     color: @syntax-text-color;
   }
 
-  &.name.tag {
+  &.syntax--syntax--name.syntax--syntax--tag {
     color: @dark-green;
   }
 
-  &.other.attribute-name {
+  &.syntax--syntax--other.syntax--syntax--attribute-name {
     color: @light-green;
 
-    &.html{
+    &.syntax--syntax--html{
       color: @yellow;
     }
   }
 
-  &.name.type {
+  &.syntax--syntax--name.syntax--syntax--type {
     color: @yellow;
   }
 
-  &.other.inherited-class {
+  &.syntax--syntax--other.syntax--syntax--inherited-class {
     color: @yellow;
   }
 }
 
-.meta {
-  &.class {
+.syntax--meta {
+  &.syntax--class {
     color: @syntax-text-color;
   }
 
-  &.link {
+  &.syntax--link {
     color: @blue;
   }
 
-  &.require {
+  &.syntax--require {
     color: @blue;
   }
 
-  &.selector {
+  &.syntax--selector {
     color: @orange;
   }
 
-  &.separator {
+  &.syntax--separator {
     background-color: @gray;
     color: @syntax-text-color;
   }
 
-  &.delimiter {
-    &.period {
+  &.syntax--delimiter {
+    &.syntax--period {
       color: @light-green;
     }
   }
 }
 
-.none {
+.syntax--none {
   color: @syntax-text-color;
 }
 
-.markup {
-  &.bold {
+.syntax--markup {
+  &.syntax--bold {
     color: @yellow;
     font-weight: bold;
   }
 
-  &.changed {
+  &.syntax--changed {
     color: @gg-orange;
   }
 
-  &.deleted {
+  &.syntax--deleted {
     color: @gg-red;
   }
 
-  &.italic {
+  &.syntax--italic {
     color: @yellow;
     font-style: italic;
   }
 
-  &.heading .punctuation.definition.heading {
+  &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
     color: @dark-green;
   }
 
-  &.inserted {
+  &.syntax--inserted {
     color: @gg-green;
   }
 
-  &.list {
+  &.syntax--list {
     color: @syntax-text-color;
   }
 
-  &.quote {
+  &.syntax--quote {
     color: @blue;
   }
 
-  &.raw.inline {
+  &.syntax--raw.syntax--inline {
     color: @orange;
   }
 }
 
-.source.gfm .markup {
+.syntax--source.syntax--gfm .syntax--markup {
   -webkit-font-smoothing: auto;
-  &.heading {
+  &.syntax--heading {
     color: @dark-green;
   }
 }
 
-atom-text-editor[mini] .scroll-view,
-:host([mini]) .scroll-view {
+atom-text-editor[mini] .scroll-view {
   padding-left: 1px;
 }
 
-.git-config {
-  &.value-pair.section-item {
-    .support.constant {
+.syntax--git-config {
+  &.syntax--value-pair.section-item {
+    .syntax--support.syntax--constant {
       color: @syntax-text-color;
     }
-    .punctuation.separator.key-value {
+    .syntax--punctuation.syntax--separator.syntax--key-value {
       color: @light-green;
     }
   }
 
-  &.entity.name.section.section.git-config {
+  &.syntax--entity.syntax--name.syntax--section.syntax--section.syntax--git-config {
     color: @light-green;
   }
 
-  &.entity.name.section.subsection.git-config {
+  &.syntax--entity.syntax--name.syntax--section.syntax--subsection.syntax--git-config {
     color: @orange;
   }
 
-  &.punctuation.section.git-config {
+  &.syntax--punctuation.syntax--section.syntax--git-config {
     color: @orange;
   }
 }
