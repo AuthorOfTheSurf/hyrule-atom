@@ -1,7 +1,7 @@
 {
   "name": "Hyrule-atom",
   "theme": "syntax",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Hyrule from SublimeText ported to Atom. A pair dynamic greens along with a soothing orange, and an addictive yellow make up the main palette of Hyrule. Well-chosen background and primary text colors leave a developer's eyes fit for another day of study. Works very well in Java, Go, JavaScript, and HTML.",
   "keywords": [
     "syntax",
