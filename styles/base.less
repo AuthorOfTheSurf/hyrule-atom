@@ -413,6 +413,11 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
       color: @white-text-color;
     }
   }
+
+  // operators like `&&`, but also the coloring of brackets in jsx `<`, `</`, `>`
+  .syntax--operator {
+    color: @light-green;
+  }
 }
 
 atom-text-editor[mini] .scroll-view {
