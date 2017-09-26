@@ -267,7 +267,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
 .syntax--entity {
   &.syntax--name.syntax--function {
-    color: @light-green;
+    color: @white-text-color;
 
     &.syntax--mustache {
       color: @syntax-text-color;
@@ -388,6 +388,10 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   &.syntax--heading {
     color: @dark-green;
   }
+}
+
+.syntax--source .syntax--method-call .syntax--function {
+  color: @light-green;
 }
 
 atom-text-editor[mini] .scroll-view {
