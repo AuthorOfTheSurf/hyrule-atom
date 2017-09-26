@@ -110,11 +110,11 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--function {
-    // `function`
-    &.syntax--js,
-    // `def`
-    &.syntax--python {
-      color: @light-green;
+    // py `def`, js `function`
+    color: @light-green;
+
+    &.syntax--arrow {
+      color: @white-text-color;
     }
   }
 
