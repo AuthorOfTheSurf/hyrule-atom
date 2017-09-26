@@ -161,12 +161,16 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     color: @yellow;
   }
 
-  &.syntax--other.syntax--color {
-    color: @blue;
-  }
+  &.syntax--other {
+    &.syntax--color,
+    &.syntax--symbol {
+      color: @blue;
+    }
 
-  &.syntax--other.syntax--symbol {
-    color: @blue;
+    // Dereferenced variables: const { x, y } = point;
+    &.syntax--js {
+      color: @white-text-color;
+    }
   }
 
   // python interpolation
