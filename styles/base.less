@@ -102,6 +102,11 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   // Actual storage modifiers, e.g. "final"
   &.syntax--modifier {
     color: @dark-green;
+
+    // `async`
+    &.syntax--js {
+      color: @light-green;
+    }
   }
 
   &.syntax--function {
