@@ -94,14 +94,14 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 .syntax--storage {
   color: @yellow;
 
+  // For `var`/`let`/`const` declarations
+  &.syntax--js {
+    color: @light-green;
+  }
+
   // Actual storage modifiers, e.g. "final"
   &.syntax--modifier {
     color: @dark-green;
-
-    // For `var` declarations
-    &.syntax--js {
-      color: @light-green;
-    }
   }
 
   &.syntax--function {
