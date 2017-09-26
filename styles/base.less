@@ -397,8 +397,15 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 }
 
-.syntax--source .syntax--method-call .syntax--function {
-  color: @light-green;
+.syntax--source {
+  .syntax--method-call .syntax--function {
+    color: @light-green;
+  }
+
+  // class methods like componentDidMount, render
+  .syntax--method.syntax--definition .syntax--function {
+    color: @yellow;
+  }
 }
 
 atom-text-editor[mini] .scroll-view {
