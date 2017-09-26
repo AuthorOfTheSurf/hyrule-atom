@@ -1,7 +1,7 @@
 @import "syntax-variables";
 
 atom-text-editor {
-  background-color: @bg-color;
+  background-color: @background-color;
   color: @syntax-text-color;
 
   .wrap-guide {
@@ -350,11 +350,11 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--changed {
-    color: @gg-orange;
+    color: @git-gutter-orange;
   }
 
   &.syntax--deleted {
-    color: @gg-red;
+    color: @git-gutter-red;
   }
 
   &.syntax--italic {
@@ -367,7 +367,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--inserted {
-    color: @gg-green;
+    color: @git-gutter-green;
   }
 
   &.syntax--list {
