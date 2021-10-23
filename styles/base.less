@@ -1,8 +1,8 @@
 @import "syntax-variables";
 
 atom-text-editor {
-  background-color: @bg-color;
-  color: @syntax-text-color;
+  background-color: @background-color;
+  color: @white-text-color;
 
   .wrap-guide {
     background-color: @syntax-wrap-guide-color;
@@ -39,7 +39,7 @@ atom-text-editor {
   }
 
   .invisible {
-    color: @syntax-text-color;
+    color: @white-text-color;
   }
 
   .cursor {
@@ -79,7 +79,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--operator {
-    color: @light-green;
+    color: @white-text-color;
   }
 
   &.syntax--other.syntax--special-method {
@@ -94,22 +94,27 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 .syntax--storage {
   color: @yellow;
 
+  // For `var`/`let`/`const` declarations
+  &.syntax--js {
+    color: @light-green;
+  }
+
   // Actual storage modifiers, e.g. "final"
   &.syntax--modifier {
     color: @dark-green;
 
-    // For `var` declarations
+    // `async`
     &.syntax--js {
       color: @light-green;
     }
   }
 
   &.syntax--function {
-    // `function`
-    &.syntax--js,
-    // `def`
-    &.syntax--python {
-      color: @light-green;
+    // py `def`, js `function`
+    color: @light-green;
+
+    &.syntax--arrow {
+      color: @white-text-color;
     }
   }
 
@@ -134,13 +139,9 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 }
 
 .syntax--variable {
-  color: @syntax-text-color;
+  color: @white-text-color;
 
   &.syntax--interpolation {
-    color: @orange;
-  }
-
-  &.syntax--parameter.syntax--function {
     color: @orange;
   }
 }
@@ -156,12 +157,16 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     color: @yellow;
   }
 
-  &.syntax--other.syntax--color {
-    color: @blue;
-  }
+  &.syntax--other {
+    &.syntax--color,
+    &.syntax--symbol {
+      color: @blue;
+    }
 
-  &.syntax--other.syntax--symbol {
-    color: @blue;
+    // Dereferenced variables: const { x, y } = point;
+    &.syntax--js {
+      color: @white-text-color;
+    }
   }
 
   // python interpolation
@@ -172,7 +177,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
 .syntax--invalid.syntax--illegal {
   background-color: @blue;
-  color: @syntax-text-color;
+  color: @white-text-color;
 }
 
 .syntax--string {
@@ -205,7 +210,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     &.syntax--variable,
     &.syntax--parameters,
     &.syntax--array {
-      color: @syntax-text-color;
+      color: @white-text-color;
     }
 
     &.syntax--heading,
@@ -214,12 +219,12 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 
     &.syntax--bold {
-      color: @syntax-text-color;
+      color: @white-text-color;
       font-weight: bold;
     }
 
     &.syntax--italic {
-      color: @syntax-text-color;
+      color: @white-text-color;
       font-style: italic;
     }
 
@@ -233,7 +238,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--section {
-    color: @syntax-text-color;
+    color: @white-text-color;
 
     &.syntax--embedded.syntax--jsp {
       color: @orange;
@@ -267,10 +272,10 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
 .syntax--entity {
   &.syntax--name.syntax--function {
-    color: @light-green;
+    color: @white-text-color;
 
     &.syntax--mustache {
-      color: @syntax-text-color;
+      color: @white-text-color;
     }
 
     // Python, `@property`
@@ -286,7 +291,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--name.syntax--section {
-    color: @syntax-text-color;
+    color: @white-text-color;
   }
 
   &.syntax--name.syntax--tag {
@@ -312,7 +317,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
 .syntax--meta {
   &.syntax--class {
-    color: @syntax-text-color;
+    color: @white-text-color;
   }
 
   &.syntax--link {
@@ -329,18 +334,12 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
   &.syntax--separator {
     background-color: @gray;
-    color: @syntax-text-color;
-  }
-
-  &.syntax--delimiter {
-    &.syntax--period {
-      color: @light-green;
-    }
+    color: @white-text-color;
   }
 }
 
 .syntax--none {
-  color: @syntax-text-color;
+  color: @white-text-color;
 }
 
 .syntax--markup {
@@ -350,11 +349,11 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--changed {
-    color: @gg-orange;
+    color: @git-gutter-orange;
   }
 
   &.syntax--deleted {
-    color: @gg-red;
+    color: @git-gutter-red;
   }
 
   &.syntax--italic {
@@ -367,11 +366,11 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 
   &.syntax--inserted {
-    color: @gg-green;
+    color: @git-gutter-green;
   }
 
   &.syntax--list {
-    color: @syntax-text-color;
+    color: @white-text-color;
   }
 
   &.syntax--quote {
@@ -383,10 +382,37 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 }
 
+.syntax--language {
+  // `this`
+  &.syntax--variable {
+    color: @light-green;
+  }
+}
+
 .syntax--source.syntax--gfm .syntax--markup {
   -webkit-font-smoothing: auto;
   &.syntax--heading {
     color: @dark-green;
+  }
+}
+
+.syntax--source {
+  .syntax--method-call .syntax--function {
+    color: @light-green;
+  }
+
+  // class methods like componentDidMount, render
+  .syntax--method.syntax--definition .syntax--function {
+    color: @yellow;
+
+    &.syntax--parameter {
+      color: @white-text-color;
+    }
+  }
+
+  // operators like `&&`, but also the coloring of brackets in jsx `<`, `</`, `>`
+  .syntax--operator {
+    color: @light-green;
   }
 }
 
@@ -397,7 +423,7 @@ atom-text-editor[mini] .scroll-view {
 .syntax--git-config {
   &.syntax--value-pair.section-item {
     .syntax--support.syntax--constant {
-      color: @syntax-text-color;
+      color: @white-text-color;
     }
     .syntax--punctuation.syntax--separator.syntax--key-value {
       color: @light-green;
